@@ -1,26 +1,97 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import Nav from "./Components/Nav/Nav";
+import Home from "./Components/Home/Home";
+import Products from "./Components/Products/Products";
+import Contact from "./Components/Contact/Contact";
+import Footer from "./Components/Footer/Footer";
+import {products} from './Products.json'
+import "./SCSS/App.scss";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends React.Component {
+  state = {
+	products: products, 
+	filteredProducts: [],
+    images: [
+      "/img/fashionWeek.jpg",
+      "/img/modelsWeek.jpg",
+      "/img/plaidWeek.jpg",
+      "/img/versaceWeek.jpg"
+    ],
+    currentIndex: 0
+  };
+
+//   slider
+  goToPrevSlide = () => {
+    if (this.state.currentIndex === 0) return;
+
+    this.setState({
+      currentIndex: this.state.currentIndex - 1
+    });
+  };
+
+  goToNextSlide = () => {
+    console.log(this.state.currentIndex);
+    if (this.state.currentIndex === this.state.images.length - 1) {
+      return this.setState({
+        currentIndex: 0
+      });
+    }
+
+    this.setState({
+      currentIndex: this.state.currentIndex + 1
+    });
+  };
+//   filter
+  filterProducts = (event) => {
+	  let products = [...this.state.products]
+	  const filterType = document.querySelector(".filterType").value
+	  const filterPrice = document.querySelector(".filterPrice").value	  
+
+	  if (filterType !== 'none') {
+		products = products.filter(product => product.filterType === filterType)
+	  }
+
+	  if(filterPrice !== "none") {
+		  if(filterPrice === 'low') {
+		  	products.sort((firstProduct, secondProduct) => Number(firstProduct.price) - Number(secondProduct.price))
+		  } else if(filterPrice === 'high') {
+			products.sort((firstProduct, secondProduct) => Number(secondProduct.price) - Number(firstProduct.price))
+		  }
+	  }
+	  this.setState({
+		  filteredProducts: products
+	  })
+  }
+
+  render() {
+    return (
+      <BrowserRouter>
+        <Nav />
+        <Switch>
+          <Route
+            exact path="/"
+            render={() => (
+              <Home
+                images={this.state.images}
+                currentIndex={this.state.currentIndex}
+                goToNextSlide={this.goToNextSlide}
+                goToPrevSlide={this.goToPrevSlide}
+              />
+            )}
+          />
+          <Route path="/products" render={() => 
+			  <Products 
+			  products={this.state.products} 
+			  filterProductsFunc={this.filterProducts}
+			  filteredProducts={this.state.filteredProducts}/>}/>
+          <Route path="/contact" component={Contact} />
+        </Switch>
+        <Footer />
+      </BrowserRouter>
+    );
+  }
 }
 
 export default App;
