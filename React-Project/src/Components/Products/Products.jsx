@@ -36,14 +36,14 @@ function Products(props) {
           return (
             <figure className="image-container">
             <img
-              src={product.src}
-              alt={product.caption}
+              src="/img/fashionWeek.jpg"
+              alt={product.Product_Name}
             />
             {/* text under each image */}
             <figcaption>
-             {product.caption}
+             {product.Product_Name}
             </figcaption>
-            <p>${product.price}</p>
+            <p>${product.Price}</p>
           </figure>
           )
         })}

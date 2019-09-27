@@ -5,14 +5,12 @@ import Home from "./Components/Home/Home";
 import Products from "./Components/Products/Products";
 import Contact from "./Components/Contact/Contact";
 import Footer from "./Components/Footer/Footer";
-import {products} from './Products.json'
 import "./SCSS/App.scss";
-
 
 class App extends React.Component {
   state = {
-	products: products, 
-	filteredProducts: [],
+    products: [],
+    filteredProducts: [],
     images: [
       "/img/fashionWeek.jpg",
       "/img/modelsWeek.jpg",
@@ -22,7 +20,12 @@ class App extends React.Component {
     currentIndex: 0
   };
 
-//   slider
+  componentDidMount(){
+    fetch("/products")
+      .then(response => response.json())
+      .then(response => this.setState({products: response}));
+  }
+  //   slider
   goToPrevSlide = () => {
     if (this.state.currentIndex === 0) return;
 
@@ -43,27 +46,33 @@ class App extends React.Component {
       currentIndex: this.state.currentIndex + 1
     });
   };
-//   filter
-  filterProducts = (event) => {
-	  let products = [...this.state.products]
-	  const filterType = document.querySelector(".filterType").value
-	  const filterPrice = document.querySelector(".filterPrice").value	  
+  //   filter
+  filterProducts = event => {
+    let products = [...this.state.products];
+    const filterType = document.querySelector(".filterType").value;
+    const filterPrice = document.querySelector(".filterPrice").value;
 
-	  if (filterType !== 'none') {
-		products = products.filter(product => product.filterType === filterType)
-	  }
+    if (filterType !== "none") {
+      products = products.filter(product => product.filterType === filterType);
+    }
 
-	  if(filterPrice !== "none") {
-		  if(filterPrice === 'low') {
-		  	products.sort((firstProduct, secondProduct) => Number(firstProduct.price) - Number(secondProduct.price))
-		  } else if(filterPrice === 'high') {
-			products.sort((firstProduct, secondProduct) => Number(secondProduct.price) - Number(firstProduct.price))
-		  }
-	  }
-	  this.setState({
-		  filteredProducts: products
-	  })
-  }
+    if (filterPrice !== "none") {
+      if (filterPrice === "low") {
+        products.sort(
+          (firstProduct, secondProduct) =>
+            Number(firstProduct.price) - Number(secondProduct.price)
+        );
+      } else if (filterPrice === "high") {
+        products.sort(
+          (firstProduct, secondProduct) =>
+            Number(secondProduct.price) - Number(firstProduct.price)
+        );
+      }
+    }
+    this.setState({
+      filteredProducts: products
+    });
+  };
 
   render() {
     return (
@@ -71,7 +80,8 @@ class App extends React.Component {
         <Nav />
         <Switch>
           <Route
-            exact path="/"
+            exact
+            path="/"
             render={() => (
               <Home
                 images={this.state.images}
@@ -81,11 +91,16 @@ class App extends React.Component {
               />
             )}
           />
-          <Route path="/products" render={() => 
-			  <Products 
-			  products={this.state.products} 
-			  filterProductsFunc={this.filterProducts}
-			  filteredProducts={this.state.filteredProducts}/>}/>
+          <Route
+            path="/products"
+            render={() => (
+              <Products
+                products={this.state.products}
+                filterProductsFunc={this.filterProducts}
+                filteredProducts={this.state.filteredProducts}
+              />
+            )}
+          />
           <Route path="/contact" component={Contact} />
         </Switch>
         <Footer />
