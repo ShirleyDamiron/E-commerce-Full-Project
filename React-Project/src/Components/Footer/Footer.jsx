@@ -9,9 +9,9 @@ function Footer() {
              <img src="/img/plaid-shirt.svg" alt="Plaid Shirt Icon"/>
            </li>
            <p className="plaidPhrase">Plaid Me: A New Set Of Vinatge Fashion!</p>
-           <li className="nav-ul__li"><a href="https://twitter.com/?lang=en"> Our Twitter</a></li>
-           <li className="nav-ul__li"><a href="https://www.facebook.com/">Our Facebook</a></li>
-           <li className="nav-ul__li"><a href="https://www.instagram.com/?hl=en">Our Instagram</a></li>
+           <li className="nav-ul__li"><a href="https://twitter.com/?lang=en" target="_blank" rel="noopener noreferrer"> Our Twitter</a></li>
+           <li className="nav-ul__li"><a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Our Facebook</a></li>
+           <li className="nav-ul__li"><a href="https://www.instagram.com/?hl=en" target="_blank" rel="noopener noreferrer">Our Instagram</a></li>
          </ul>
        </nav>
      </footer>

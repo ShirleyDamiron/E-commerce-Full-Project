@@ -16,11 +16,11 @@ function Products(props) {
       <div className="filter-container">
         <select id="filter" className="filterType" onChange={props.filterProductsFunc}>
           <option value="none">Filter By Type</option>
-          <option value="bottoms">Bottoms</option>
-          <option value="overlay">Overlay</option>
-          <option value="shoes">Shoes</option>
-          <option value="dresses">Dresses</option>
-          <option value="skirts">Skirts</option>
+          <option value="Bottoms">Bottoms</option>
+          <option value="Overlay">Overlay</option>
+          <option value="Shoes">Shoes</option>
+          <option value="Dresses">Dresses</option>
+          <option value="Skirts">Skirts</option>
         </select>
         {/* filter of price */}
         <select className="filterPrice" onChange={props.filterProductsFunc}>
@@ -36,7 +36,7 @@ function Products(props) {
           return (
             <figure className="image-container">
             <img
-              src="/img/fashionWeek.jpg"
+              src={product.IMG_SRC}
               alt={product.Product_Name}
             />
             {/* text under each image */}

@@ -47,25 +47,25 @@ class App extends React.Component {
     });
   };
   //   filter
-  filterProducts = event => {
+  filterProducts = () => {
     let products = [...this.state.products];
     const filterType = document.querySelector(".filterType").value;
     const filterPrice = document.querySelector(".filterPrice").value;
 
     if (filterType !== "none") {
-      products = products.filter(product => product.filterType === filterType);
+      products = products.filter(product => product.Category === filterType);
     }
 
     if (filterPrice !== "none") {
       if (filterPrice === "low") {
         products.sort(
           (firstProduct, secondProduct) =>
-            Number(firstProduct.price) - Number(secondProduct.price)
+            Number(firstProduct.Price) - Number(secondProduct.Price)
         );
       } else if (filterPrice === "high") {
         products.sort(
           (firstProduct, secondProduct) =>
-            Number(secondProduct.price) - Number(firstProduct.price)
+            Number(secondProduct.Price) - Number(firstProduct.Price)
         );
       }
     }

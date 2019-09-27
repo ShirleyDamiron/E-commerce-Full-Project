@@ -21,7 +21,7 @@ VALUES      ("The YelPurp Set", "Bottoms", "Medium", "Linen", "Purple/Yellow", 7
             ("Naca Ripped Bottoms", "Bottoms", "Small", "Nylon", "Plaid", 18),
             ("Love Me Coat", "Overlay", "Large", "Nylon", "Plaid", 9),
             ("Plaid Me Cardigan", "Overlay", "Small", "Boiled Wool", "Plaid", 62),
-            ("School Girl Jennifen", "Dresses", "Large", "Nylon", "Plaid", 37),
+            ("School Girl Jennifer", "Dresses", "Large", "Nylon", "Plaid", 37),
             ("Tea Nice Sweet Dress", "Dresses", "Small", "Silk", "Plaid", 28),
             ("Red Lipstick Plaid Pants", "Bottoms", "Small", "Brocade", "Red", 28),
             ("New Blue Mix Pants", "Bottoms", "Medium", "Linen", "Blue", 60),
