@@ -17,6 +17,9 @@ const accessLogStream = fs.createWriteStream("morgan.log", { flags: "a" });
 
 app.use(bodyParser())
 app.use(morgan("combined", { stream: accessLogStream }));
+
+// disables certain headers so they can be private
+
 app.use(helmet());
 
 app.get("/products", getAllProducts);

@@ -147,3 +147,7 @@
 ::ffff:127.0.0.1 - - [03/Oct/2019:15:51:07 +0000] "PUT /updateContact/16 HTTP/1.1" 200 21 "-" "PostmanRuntime/7.15.0"
 ::ffff:127.0.0.1 - - [03/Oct/2019:15:51:30 +0000] "DELETE /deleteContact/16 HTTP/1.1" 200 29 "-" "PostmanRuntime/7.15.0"
 ::ffff:127.0.0.1 - - [03/Oct/2019:15:55:58 +0000] "GET /products HTTP/1.1" 304 - "http://localhost:3000/contact?firstname=Shirley&lastname=Damiron&email=shirleydamiron90%40gmail.com&country=canada&comments=love+webiste" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36"
+::ffff:127.0.0.1 - - [03/Oct/2019:17:22:39 +0000] "GET /products HTTP/1.1" 200 2368 "-" "-"
+::ffff:127.0.0.1 - - [03/Oct/2019:17:22:39 +0000] "GET /products HTTP/1.1" 200 2368 "-" "-"
+::ffff:127.0.0.1 - - [03/Oct/2019:17:22:39 +0000] "GET /contacts HTTP/1.1" 200 2290 "-" "-"
+::ffff:127.0.0.1 - - [03/Oct/2019:17:22:39 +0000] "GET /products/productFilter/shoes HTTP/1.1" 200 388 "-" "-"
