@@ -13,22 +13,24 @@ CREATE TABLE Products (
     Material VARCHAR(32),
     Color VARCHAR(32),
     Quantity INT,
+	IMG_SRC VARCHAR(100),
     PRIMARY KEY (Products_Id)
 );
 
-INSERT INTO Products (Product_Name, Category, Sizes, Material, Color, Quantity)
-VALUES      ("The YelPurp Set", "Bottoms", "Medium", "Linen", "Purple/Yellow", 7),
-            ("Naca Ripped Bottoms", "Bottoms", "Small", "Nylon", "Plaid", 18),
-            ("Love Me Coat", "Overlay", "Large", "Nylon", "Plaid", 9),
-            ("Plaid Me Cardigan", "Overlay", "Small", "Boiled Wool", "Plaid", 62),
-            ("School Girl Jennifer", "Dresses", "Large", "Nylon", "Plaid", 37),
-            ("Tea Nice Sweet Dress", "Dresses", "Small", "Silk", "Plaid", 28),
-            ("Red Lipstick Plaid Pants", "Bottoms", "Small", "Brocade", "Red", 28),
-            ("New Blue Mix Pants", "Bottoms", "Medium", "Linen", "Blue", 60),
-            ("Fancy Me Skirt", "Skirt", "Medium", "Nylon", "Dark Gray", 52),
-            ("My Mini Friend", "Skirt", "Large", "Satin", "Plaid", 12),
-            ("Full Bowed Pleasure Flats", "Shoes", "4-6", "Velvet", "Red", 102),
-            ("Walk My Plaid", "Shoes", "5-7", "Velvet", "Plaid", 45);
+INSERT INTO Products (Product_Name, Category, Sizes, Material, Color,  Quantity, IMG_SRC)
+VALUES      ("The YelPurp Set", "Bottoms", "Medium", "Linen", "Purple/Yellow", 7, "/img/purp.jpg"),
+            ("Naca Ripped Bottoms", "Bottoms", "Small", "Nylon", "Plaid", 18, "/img/rippednaca.jpg"),
+            ("Love Me Coat", "Overlay", "Large", "Nylon", "Plaid", 9, "/img/lovemecoat.jpg"),
+            ("Plaid Me Cardigan", "Overlay", "Small", "Boiled Wool", "Plaid", 62, "/img/plaidmec.jpg"),
+            ("School Girl Jennifer", "Dresses", "Large", "Nylon", "Plaid", 37, "/img/schoolgirljen.jpg"),
+            ("Tea Nice Sweet Dress", "Dresses", "Small", "Silk", "Plaid", 28, "/img/teanice.jpg"),
+            ("Red Lipstick Plaid Pants", "Bottoms", "Small", "Brocade", "Red", 28, "/img/redlip.jpg"),
+            ("New Blue Mix Pants", "Bottoms", "Medium", "Linen", "Blue", 60, "/img/bluemix.jpg"),
+            ("Fancy Me Skirt", "Skirts", "Medium", "Nylon", "Dark Gray", 52, "/img/fancyme.jpeg"),
+            ("My Mini Friend", "Skirts", "Large", "Satin", "Plaid", 12, "/img/minifriend.png"),
+            ("Full Bowed Pleasure Flats", "Shoes", "4-6", "Velvet", "Red", 102, "/img/bowed.jpg"),
+            ("Walk My Plaid", "Shoes", "5-7", "Velvet", "Plaid", 45, "/img/walkinmy.jpg");
+
 
 -- PRICE TABLE
 
@@ -96,13 +98,13 @@ CREATE TABLE Orders (
 
 INSERT INTO Orders (Shipping_Costs, Quantity_Ordered)
 VALUES (7.99, 2),
+       (7.99, 1),
        (7.99, 2),
+       (7.99, 9),
+       (7.99, 1),
+       (7.99, 1),
        (7.99, 2),
-       (7.99, 2),
-       (7.99, 2),
-       (7.99, 2),
-       (7.99, 2),
-       (7.99, 2),
-       (7.99, 2),
+       (7.99, 5),
+       (7.99, 3),
        (7.99, 2);
         
